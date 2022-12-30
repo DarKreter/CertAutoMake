@@ -1,36 +1,36 @@
-#include <iostream>
-#include <algorithm>
-#include <iterator>
-#include <sstream>
 #include <iomanip>
+#include <iostream>
 
-#include "XMLfile.h"
-#include "encode.h"
-#include "FilesManagment.h"
-#include "Entertainment.h"
+#include "Entertainment.hpp"
+#include "FilesManagment.hpp"
+#include "XMLfile.hpp"
+#include "encode.hpp"
 
 using namespace std;
+using ent::Format_t;
 using xml::XMLfile;
-
 
 int main()
 {
-    try
-    {
+    Format_t errorColor(Format_t::Color::red);
+    Format_t successColor(Format_t::Color::green);
+    Format_t dataColor(Format_t::Color::white);
+
+    try {
         vector<XMLfile> files;
 
-        wstring path = L"";
-        fm::ReadDirectoryWS(path, files, { ".xml" });
+        string path = "";
+        fm::ReadDirectory(path, files, {"*.xml"});
 
-        if (files.empty())
-        {
-            ent::ChangeColor(ent::red);
-            cout << "BRAK PLIKOW!\n";
-            system("pause");
+        if(files.empty()) {
+
+            cout << errorColor << "BRAK PLIKOW!\n";
+            cin.get();
             return 0;
         }
-
-        ent::ChangeColor(ent::white); system("pause");
+        cout << dataColor;
+        cout << "Press enter to continue";
+        cin.get();
         //------------------------------------------------
         string imagePath = "_Miniatura.jpg";
 
@@ -46,108 +46,94 @@ int main()
             image = imageOUTStr.str();
         }
 
-        //cout << image << endl;
+        // cout << image << endl;
 
         string temp;
-        string kodWoj = "K_02";                     //Dolnoslaskie
-        string kodPowiatu = "0223";                 //Wroclawski
-        string kodGminy = "0223074";                //Sobótka-miasto
+        string kodWoj = "K_02"; // Dolnoslaskie
+        // string kodPowiatu = "0223";  // Wroclawski
+        // string kodGminy = "0223074"; // Sobï¿½tka-miasto
 
-        //string kodPowiatu = "0262";                 //Legnica
-        //string kodGminy = "0262011";                //Legnica
-        // 
-        //string kodPowiatu = "0220";                 //TRZEBNICKI
-        //string kodGminy =   "0220034";              //Trzebnica
+        // string kodPowiatu = "0262";                 //Legnica
+        // string kodGminy = "0262011";                //Legnica
+        //
+        // string kodPowiatu = "0220";                 //TRZEBNICKI
+        // string kodGminy =   "0220034";              //Trzebnica
 
-        //string kodPowiatu = "0264";                 //Wroclaw
-        //string kodGminy = "0264029";                //Fabryczna
-        //string kodGminy = "0264039";              //Krzyki
-        //string kodGminy = "0264049";              //Psie Pole
-        //string kodGminy = "0264069";              //Srodmiescie
-        //string kodGminy = "0264059";              //Stare miasto
+        string kodPowiatu = "0264"; // Wroclaw
+        // string kodGminy = "0264029"; // Fabryczna
+        // string kodGminy = "0264039";              //Krzyki
+        string kodGminy = "0264049"; // Psie Pole
+        // string kodGminy = "0264069";              //Srodmiescie
+        // string kodGminy = "0264059";              //Stare miasto
 
         constexpr short precyzjaDomu = 2, precyzjaLokalu = 2;
 
-        for (auto& file : files)
-        {
+        for(auto& file : files) {
 
             //-----------------TUTAJ POPRAWIAJ!------------------------------
-            wstring ulica = file.ElementContent(L"ulica");
+            string ulica = file.ElementContent("ulica");
             string temp = file.ElementContent("nrLokalu");
             string nrDomu = temp.substr(0, temp.find('/'));
-            string nrLokalu   = temp.substr(temp.find('/') + 1);
-            //string nrDomu = file.ElementContent("nrDomu");
-            //string nrLokalu = file.ElementContent("nrLokalu");
+            string nrLokalu = temp.substr(temp.find('/') + 1);
+            // string nrDomu = file.ElementContent("nrDomu");
+            // string nrLokalu = file.ElementContent("nrLokalu");
 
-            //cout << nrDomu << " " << nrLokalu << endl;
-            //continue;
+            // cout << nrDomu << " " << nrLokalu << endl;
+            // continue;
 
             file.ChangeElementContent("wojewodztwo", kodWoj);
 
-            if (!file.CheckElement("terytPowiat"))
-                file.AddNestedElement({ "terytPowiat", "kodPowiatu" }, kodPowiatu, "wojewodztwo");
+            if(!file.CheckElement("terytPowiat"))
+                file.AddNestedElement({"terytPowiat", "kodPowiatu"}, kodPowiatu, "wojewodztwo");
 
-            if (!file.CheckElement("terytGmina"))
-                file.AddNestedElement({ "terytGmina", "kodGminy" }, kodGminy, "terytPowiat");
+            if(!file.CheckElement("terytGmina"))
+                file.AddNestedElement({"terytGmina", "kodGminy"}, kodGminy, "terytPowiat");
 
-            if (file.ElementContent("nrLokalu").length() > 2)
-                //file.ChangeElementContent("nrDomu", nrDomu);
-                file.AddElement("nrDomu", nrDomu, "ulica");
-                // "sed -i "s#<nrDomu />##g" *.xml" - remove broken tags
+            if(file.ElementContent("nrLokalu").length() > 2)
+                file.ChangeElementContent("nrDomu", nrDomu);
+            // file.AddElement("nrDomu", nrDomu, "ulica");
+            // "sed -i "s#<nrDomu />##g" *.xml" - remove broken tags
 
-            if (file.ElementContent("nrLokalu").length() > 2)
+            if(file.ElementContent("nrLokalu").length() > 2)
                 file.ChangeElementContent("nrLokalu", nrLokalu);
 
-            //file.ChangeElementContent(L"ulica", ulica);
+            // file.ChangeElementContent("ulica", ulica);
 
-            if (!file.CheckElement("swiadectwoEnergetyczneImage"))
-                file.AddNestedElement({ "swiadectwoEnergetyczneImage", "imageResource" }, image, "swiadectwoEnergetyczneType"); ///Dodanie miniaturki
+            if(!file.CheckElement("swiadectwoEnergetyczneImage"))
+                file.AddNestedElement({"swiadectwoEnergetyczneImage", "imageResource"}, image,
+                                      "swiadectwoEnergetyczneType"); /// Dodanie miniaturki
 
-            if (file.CheckElement("poczta"))
+            if(file.CheckElement("poczta"))
                 file.EraseElement("poczta");
 
             file.SaveToFile();
 
-            std::wstringstream newName;
-            newName << std::setfill(L'0') << ulica << L"_" << std::setw(precyzjaDomu) << sm::STWS(nrDomu)
-                << L"-" << std::setw(precyzjaLokalu) << sm::STWS(nrLokalu) 
-                << L".xml";
+            std::stringstream newName;
+            newName << std::setfill('0') << ulica << "_" << std::setw(precyzjaDomu) << nrDomu << "-"
+                    << std::setw(precyzjaLokalu) << nrLokalu << ".xml";
 
-            fm::RenameFileW(file.FileName(), newName.str());
+            fm::RenameFile(file.FileName(), newName.str());
 
-            ent::ChangeColor(ent::white); cout  << sm::WSTS(newName.str()) ;
-            ent::ChangeColor(ent::lime);  cout  << "\t\tDONE" << endl;
-            ent::ChangeColor(ent::white);
+            cout << dataColor << newName.str() << successColor << "\t\tDONE" << endl << dataColor;
         }
-
-
     }
-    catch (fm::Error_t& error)
-    {
-        ent::ChangeColor(ent::red);
-        cout << "Nastapil blad:" << endl
-            << error.what << endl;
-        system("pause");
+    catch(fm::Error_t& error) {
+        cout << errorColor << "Nastapil blad:" << endl << error.what << endl;
+        cin.get();
         return 0;
     }
-    catch (xml::Error_t& error)
-    {
-        ent::ChangeColor(ent::red);
-        cout << "Nastapil blad:" << endl
-            << error.What << endl;
-        system("pause");
+    catch(xml::Error_t& error) {
+        cout << errorColor << "Nastapil blad:" << endl << error.What << endl;
+        cin.get();
         return 0;
     }
-    catch (...)
-    {
-        ent::ChangeColor(ent::red);
-        cout << "Nastapil nieznany blad!" << endl;
-        system("pause");
+    catch(...) {
+        cout << errorColor << "Nastapil nieznany blad!" << endl;
+        cin.get();
         return 0;
     }
-    ent::ChangeColor(ent::lime);     cout << "Succes!" << endl;
-    system("pause");
+    cout << successColor << "Succes!" << endl;
+    cin.get();
 
     return 0;
-
 }

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(AnimeOrganiser LANGUAGES CXX)
+project(CertAutoMake LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -14,11 +14,9 @@ ENDIF()
 add_compile_options(${CPU_OPTIONS})
 
 add_subdirectory(Entertainment)
-add_subdirectory(Menu)
-
 add_subdirectory(StringManagment)
 add_subdirectory(FilesManagment)
-
-add_subdirectory(EpSubManagment)
+add_subdirectory(Base64)
+add_subdirectory(XML)
 
 add_subdirectory(firmware)

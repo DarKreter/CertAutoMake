@@ -1,4 +1,4 @@
-#include "cencode.h"
+#include "cencode.hpp"
 
 namespace b64
 {

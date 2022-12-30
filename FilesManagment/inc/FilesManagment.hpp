@@ -50,7 +50,7 @@ void ReadDirectory(std::string, std::vector<T>&, const std::vector<std::string>&
         @param maksymalny rozmiar pliku [wielkosc bufora] | jesli plik jest wiekszy rzuci wyjatek
         @return zwraca dane binarne z pliku
 */
-std::string ReadFile(std::string name, const unsigned long long rozmiar);
+std::string ReadFile(std::string name, const unsigned long long rozmiar = 1'000'000);
 
 /**
         OTworzy plik i wpisuje tam binarne dane

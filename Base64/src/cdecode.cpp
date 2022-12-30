@@ -1,4 +1,4 @@
-#include "cdecode.h"
+#include "cdecode.hpp"
 
 namespace b64
 {
