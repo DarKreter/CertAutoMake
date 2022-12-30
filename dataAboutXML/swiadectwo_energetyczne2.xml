@@ -1,0 +1,238 @@
+<swi:SwiadectwoEnergetyczne xmlns:swi="http://www.pentacomp.pl/xsd/mir-sr/swiadectwa-import">
+  <!--Optional:-->
+  <danePodstawowe>
+    <!--Optional:-->
+    <miejscowosc>Abcd Efg</miejscowosc>
+    <!--Optional:-->
+    <ulica>Hihklmno</ulica>
+    <!--Optional:-->
+    <nrDomu>12p</nrDomu>
+    <!--Optional:-->
+    <nrLokalu>3</nrLokalu>
+    <!--Optional:-->
+    <kodPocztowy>45-678</kodPocztowy>
+    <!--Optional:-->
+    <poczta>Abcd Efg</poczta>
+    <!--Optional:-->
+    <wojewodztwo>K_20</wojewodztwo>
+    <!--Optional:-->
+    <terytPowiat>
+      <!--Optional:-->
+      <kodPowiatu>0201</kodPowiatu>
+    </terytPowiat>
+
+    <!--Optional:-->
+    <czyBudynek>NO</czyBudynek>
+    <!--Optional:-->
+    <czyBudynekZajmowanyPrzezOrganWiekszyOd250>YES</czyBudynekZajmowanyPrzezOrganWiekszyOd250>
+    <!--Optional:-->
+    <metodaObliczaniaCharakterystyki>K_1</metodaObliczaniaCharakterystyki>
+    <!--Optional:-->
+    <nazwaOrganuZajmujacegoBudynek>AbcabcdefGh JklMnopqr</nazwaOrganuZajmujacegoBudynek>
+    <!--Optional:-->
+    <powierzchUzytkowa>1274.00</powierzchUzytkowa>
+    <!--Optional:-->
+    <powierzchniaRegulowanaTemp>894.00</powierzchniaRegulowanaTemp>
+    <!--Optional:-->
+    <powierzchniaZajmowanaPrzezOrgan>750.00</powierzchniaZajmowanaPrzezOrgan>
+    <!--Optional:-->
+    <!--Optional:-->
+    <rodzajBudynku>K_5</rodzajBudynku>
+    <!--Optional:-->
+    <rokOddania>3</rokOddania>
+  </danePodstawowe>
+  <!--Optional:-->
+  <wazneDo>2017-08-19T19:27:14+02:00</wazneDo>
+  <!--Zero or more repetitions:-->
+  <energiaKoncowa>
+    <!--Optional:-->
+    <rodzajNosnika>K_4</rodzajNosnika>
+    <!--Optional:-->
+    <oswietlenieWbudowane>35.98</oswietlenieWbudowane>
+    <!--Optional:-->
+    <chlodzenie>56.45</chlodzenie>
+    <!--Optional:-->
+    <cieplaWoda>215.82</cieplaWoda>
+    <!--Optional:-->
+    <ogrzewanieWentylacja>12.21</ogrzewanieWentylacja>
+  </energiaKoncowa>
+  <!--Zero or more repetitions:-->
+  <energiaPierwotna>
+    <!--Optional:-->
+    <rodzajNosnika>K_4</rodzajNosnika>
+    <!--Optional:-->
+    <oswietlenieWbudowane>65.18</oswietlenieWbudowane>
+    <!--Optional:-->
+    <chlodzenie>103.06</chlodzenie>
+    <!--Optional:-->
+    <cieplaWoda>316.85</cieplaWoda>
+    <!--Optional:-->
+    <ogrzewanieWentylacja>37.44</ogrzewanieWentylacja>
+  </energiaPierwotna>
+  <!--Optional:-->
+  <energiaUzytkowa>
+    <!--Optional:-->
+    <rodzajNosnika>K_4</rodzajNosnika>
+    <!--Optional:-->
+    <oswietlenieWbudowane>51.76</oswietlenieWbudowane>
+    <!--Optional:-->
+    <chlodzenie>129.99</chlodzenie>
+    <!--Optional:-->
+    <cieplaWoda>294.01</cieplaWoda>
+    <!--Optional:-->
+    <ogrzewanieWentylacja>10.08</ogrzewanieWentylacja>
+  </energiaUzytkowa>
+  <!--Zero or more repetitions:-->
+  <systemOswietlenia>
+    <!--Optional:-->
+    <jednostka>K_3</jednostka>
+    <!--Optional:-->
+    <iloscNosnika>15.00</iloscNosnika>
+    <!--Optional:-->
+    <rodzajNosnika>K_3</rodzajNosnika>
+  </systemOswietlenia>
+  <!--Zero or more repetitions:-->
+  <systemChlodzenia>
+    <!--Optional:-->
+    <jednostka>K_1</jednostka>
+    <!--Optional:-->
+    <iloscNosnika>87.88</iloscNosnika>
+    <!--Optional:-->
+    <rodzajNosnika>K_9</rodzajNosnika>
+  </systemChlodzenia>
+  <!--Zero or more repetitions:-->
+  <systemPrzygotowaniaCieplejWody>
+    <!--Optional:-->
+    <jednostka>K_3</jednostka>
+    <!--Optional:-->
+    <iloscNosnika>33.21</iloscNosnika>
+    <!--Optional:-->
+    <rodzajNosnika>K_15</rodzajNosnika>
+  </systemPrzygotowaniaCieplejWody>
+  <!--Zero or more repetitions:-->
+  <systemOgrzewczy>
+    <!--Optional:-->
+    <jednostka>K_1</jednostka>
+    <!--Optional:-->
+    <iloscNosnika>76.28</iloscNosnika>
+    <!--Optional:-->
+    <rodzajNosnika>K_8</rodzajNosnika>
+  </systemOgrzewczy>
+  <!--Optional:-->
+  <uwagiDoSwiadectwa>
+    <!--Optional:-->
+    <inneUwagi>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</inneUwagi>
+    <!--Optional:-->
+    <zaleceniaDoPrzegrodBudynku>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</zaleceniaDoPrzegrodBudynku>
+    <!--Optional:-->
+    <zaleceniaDoPrzegrodBudynkuNiezaleznie>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</zaleceniaDoPrzegrodBudynkuNiezaleznie>
+    <!--Optional:-->
+    <zaleceniaDoSystemowTechnicznych>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</zaleceniaDoSystemowTechnicznych>
+    <!--Optional:-->
+    <zaleceniaDoSystemowTechnicznychNiezaleznie>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</zaleceniaDoSystemowTechnicznychNiezaleznie>
+  </uwagiDoSwiadectwa>
+  <!--Zero or more repetitions:-->
+  <przegrodyBudynku>
+    <!--Optional:-->
+    <wspolczynnikPrzenikaniaCieplaWymagany>556.07</wspolczynnikPrzenikaniaCieplaWymagany>
+    <!--Optional:-->
+    <wspolczynnikPrzenikaniaCieplaUzyskany>261.87</wspolczynnikPrzenikaniaCieplaUzyskany>
+    <!--Optional:-->
+    <opisPrzegrody>Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</opisPrzegrody>
+    <!--Optional:-->
+    <nazwaPrzegrodyBudynku>K_12</nazwaPrzegrodyBudynku>
+    <!--Optional:-->
+  </przegrodyBudynku>
+  <!--Zero or more repetitions:-->
+  <podzialPowierzchniUzytkowej>
+    <!--Optional:-->
+    <powierzchnia>870.17</powierzchnia>
+    <!--Optional:-->
+    <rodzajPowierzchniUzytkowej>K_4</rodzajPowierzchniUzytkowej>
+  </podzialPowierzchniUzytkowej>
+  <!--Optional:-->
+  <stacjaKlimatyczna>K_61</stacjaKlimatyczna>
+  <!--Optional:-->
+  <paramTech>
+    <!--Optional:-->
+    <kubatura>35673.98</kubatura>
+    <!--Optional:-->
+    <kubaturaORegulowanejTemp>34239.53</kubaturaORegulowanejTemp>
+    <!--Optional:-->
+    <liczbaKondygnacji>3</liczbaKondygnacji>
+    <!--Optional:-->
+    <opisInstalacjiOswietlenia>Mauris dignissim ultricies tincidunt. Donec in eleifend lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</opisInstalacjiOswietlenia>
+    <!--Optional:-->
+    <opisInstalacjiWentylacji>Mauris dignissim ultricies tincidunt. Donec in eleifend lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</opisInstalacjiWentylacji>
+    <!--Optional:-->
+    <rodzajKonstrukcji>Mauris dignissim ultricies tincidunt.</rodzajKonstrukcji>
+    <!--Optional:-->
+    <temperaturaStrefyOgrzewane>bnmbmnm</temperaturaStrefyOgrzewane>
+  </paramTech>
+      <parametrTechinczySystemOgrzewczy> 
+	      <!--Optional:-->
+      <wytwarzanieCieplaOpisowo>adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</wytwarzanieCieplaOpisowo>
+      <!--Optional:-->
+      <wytwarzanieCieplaSprawnosc>okkyu</wytwarzanieCieplaSprawnosc>
+      <!--Optional:-->
+      <przesylCieplaOpisowo>dolor sit amet, consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</przesylCieplaOpisowo>
+      <!--Optional:-->
+      <przesylCieplaSprawnosc>fgneegr</przesylCieplaSprawnosc>
+      <!--Optional:-->
+      <akumulacjaCieplaOpisowo>consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</akumulacjaCieplaOpisowo>
+      <!--Optional:-->
+      <akumulacjaCieplaSprawnosc>tyervewcc</akumulacjaCieplaSprawnosc>
+      <!--Optional:-->
+      <regulacjaOpisowo>dignissim ultricies tincidunt. Donec in eleifend lorem.</regulacjaOpisowo>
+      <!--Optional:-->
+      <regulacjaSprawnosc>ecwrgvetybn</regulacjaSprawnosc>
+    </parametrTechinczySystemOgrzewczy>
+	<parametrTechinczySystemCieplejWody> 
+	      <!--Optional:-->
+      <wytwarzanieCieplaOpisowo>adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</wytwarzanieCieplaOpisowo>
+      <!--Optional:-->
+      <wytwarzanieCieplaSprawnosc>okkyu</wytwarzanieCieplaSprawnosc>
+      <!--Optional:-->
+      <przesylCieplaOpisowo>dolor sit amet, consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</przesylCieplaOpisowo>
+      <!--Optional:-->
+      <przesylCieplaSprawnosc>fgneegr</przesylCieplaSprawnosc>
+      <!--Optional:-->
+      <akumulacjaCieplaOpisowo>consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</akumulacjaCieplaOpisowo>
+      <!--Optional:-->
+      <akumulacjaCieplaSprawnosc>tyervewcc</akumulacjaCieplaSprawnosc>
+    </parametrTechinczySystemCieplejWody>
+	    <parametrTechinczySystemChlodzenia> 
+	      <!--Optional:-->
+      <wytwarzanieChloduOpisowo>adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</wytwarzanieChloduOpisowo>
+      <!--Optional:-->
+      <wytwarzanieChloduSprawnosc>okkyu</wytwarzanieChloduSprawnosc>
+      <!--Optional:-->
+      <przesylChloduOpisowo>dolor sit amet, consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</przesylChloduOpisowo>
+      <!--Optional:-->
+      <przesylChloduSprawnosc>fgneegr</przesylChloduSprawnosc>
+      <!--Optional:-->
+      <akumulacjaChloduOpisowo>consectetur adipiscing elit. Nunc non ante nec ante finibus semper eget quis lacus. Mauris dignissim ultricies tincidunt. Donec in eleifend lorem.</akumulacjaChloduOpisowo>
+      <!--Optional:-->
+      <akumulacjaChloduSprawnosc>tyervewcc</akumulacjaChloduSprawnosc>
+      <!--Optional:-->
+      <regulacjaOpisowo>dignissim ultricies tincidunt. Donec in eleifend lorem.</regulacjaOpisowo>
+      <!--Optional:-->
+      <regulacjaSprawnosc>ecwrgvetybn</regulacjaSprawnosc>
+    </parametrTechinczySystemChlodzenia>
+  <!--Optional:-->
+  <charakterystykaEnergetyczna>
+    <!--Optional:-->
+    <budynekNowyPoziomWymaganEp>769.14</budynekNowyPoziomWymaganEp>
+    <!--Optional:-->
+    <budynekOcenianyZapotrzebowanieEk>981.78</budynekOcenianyZapotrzebowanieEk>
+    <!--Optional:-->
+    <budynekOcenianyZapotrzebowanieEp>1078.29</budynekOcenianyZapotrzebowanieEp>
+    <!--Optional:-->
+    <budynekOcenianyZapotrzebowanieEu>675.10</budynekOcenianyZapotrzebowanieEu>
+    <!--Optional:-->
+    <poziomEmisjiCO2>407.03</poziomEmisjiCO2>
+    <!--Optional:-->
+    <udzialOdnawialnychZrodelEnergiiEk>509.93</udzialOdnawialnychZrodelEnergiiEk>
+  </charakterystykaEnergetyczna>
+  <swiadectwoEnergetyczneType>BUILDING</swiadectwoEnergetyczneType>
+</swi:SwiadectwoEnergetyczne>

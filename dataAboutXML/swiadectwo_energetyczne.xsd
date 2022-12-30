@@ -1,0 +1,2489 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.pentacomp.pl/xsd/mir-sr/swiadectwa-import"
+           xmlns="http://www.pentacomp.pl/xsd/mir-sr/swiadectwa-import">
+
+    <xs:element name="SwiadectwoEnergetyczne" type="swiadectwoEnergetyczne"/>
+
+    <xs:complexType name="swiadectwoEnergetyczne">
+        <xs:sequence>
+            <xs:element name="danePodstawowe" type="danePodstawowe" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Oceniany budynek
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wazneDo" type="xs:dateTime" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ważne do (rrrr-mm-dd)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="energiaKoncowa" type="energiaKoncowa" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wskaźnik rocznego zapotrzebowania na energię końcową EK [kWh/(m2·rok)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="energiaPierwotna" type="energiaPierwotna" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wskaźnik rocznego zapotrzebowania na nieodnawialną energię pierwotną EP [kWh/(m2·rok)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="energiaUzytkowa" type="energiaUzytkowa" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wskaźnik rocznego zapotrzebowania na energię użytkową EU [kWh/(m2·rok)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="systemOswietlenia" type="roczneZuzycieNosnikaEnergiiSystemuOswietlenia" nillable="true"
+                        minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        System wbudowanej instalacji oświetlenia
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="systemChlodzenia" type="roczneZuzycieNosnikaEnergiiSystemuChlodzenia" nillable="true"
+                        minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        System chłodzenia
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="systemPrzygotowaniaCieplejWody" type="roczneZuzycieNosnikaEnergiiSystemuCieplejWody"
+                        nillable="true" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        System przygotowania ciepłej wody użytkowej
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="systemOgrzewczy" type="roczneZuzycieNosnikaEnergiiSystemuOgrzewania" nillable="true"
+                        minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        System ogrzewczy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="uwagiDoSwiadectwa" type="uwagiDoSwiadectwa" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Zalecenia
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przegrodyBudynku" type="przegrodaBudynku" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nazwa przegrody budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="podzialPowierzchniUzytkowej" type="podzialPowierzchniUzytkowej" nillable="true"
+                        minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Podział powierzchni użytkowej budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="stacjaKlimatyczna" type="stacjaKlimatyczna" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Stacja meteorologiczna, według której danych jest wyznaczana charakterystyka energetyczna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="paramTech" type="parametryTechniczne" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Podstawowe parametry techniczno-użytkowe budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="parametrTechinczySystemOgrzewczy" type="parametrTechinczySystemOgrzewczy" minOccurs="0"
+                        maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Element określający system ogrzewczy w podstawowych parametrach techniczno-użytkowych budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="parametrTechinczySystemCieplejWody" type="parametrTechinczySystemCieplejWody" minOccurs="0"
+                        maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Element określający system ciepłej wody w podstawowych parametrach techniczno-użytkowych budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="parametrTechinczySystemChlodzenia" type="parametrTechinczySystemChlodzenia" minOccurs="0"
+                        maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Element określający system chłodzenia w podstawowych parametrach techniczno-użytkowych budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="charakterystykaEnergetyczna" type="charakterystykaEnergetyczna" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ocena charakterystyki energetycznej budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="swiadectwoEnergetyczneType" type="swiadectwoEnergetyczneType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Element określający rodzaj świadectwa (zgodnie z opisem enumeracji typu danych)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="swiadectwoEnergetyczneImage" type="swiadectwoEnergetyczneImage" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Zdjęcie budynku w base64, zdjęcie musi spełniać poniższe kryteria:
+						-maksymalna proporcja 0.8, minimalna proporcja 0.65 (proporcja jest wyliczana na podstawie wzoru: szerokość/wysokość )
+						-maksymalny rozmiar zdjęcia 100 kB
+						-obsługiwane typy zdjęć jpeg, gif, png, tif
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="danePodstawowe">
+        <xs:sequence>
+            <xs:element name="miejscowosc" type="string70" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Miejscowość
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ulica" type="string200" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ulica
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="nrDomu" type="string10" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nr domu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="nrLokalu" type="string10" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nr lokalu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="kodPocztowy" type="string10" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kod Pocztowy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="poczta" type="string70" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Poczta
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wojewodztwo" type="wojewodztwo" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Województwo
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="terytPowiat" type="powiat" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kod teryt powiatu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="terytGmina" type="gmina" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kod teryt gminy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="czyBudynek" type="yesNoType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Budynek zajmowany przez władze publiczne
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="czyBudynekZajmowanyPrzezOrganWiekszyOd250" type="yesNoType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Budynek, w którym powierzchnia użytkowa zajmowana przez organy wymianu sprawiedliwości,
+                        prokuraturę lub organy administracji publicznej przekracza 250 m2
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="metodaObliczaniaCharakterystyki" type="metodaObliczaniaCharakterystykiEnergetycznej"
+                        minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Metoda wyznaczania charakterystyki energetycznej
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="nazwaOrganuZajmujacegoBudynek" type="string300" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nazwa organu zajmującego budynek
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="powierzchUzytkowa" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Powierzchnia użytkowa budynku/modułu budynku [m2]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="powierzchniaRegulowanaTemp" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Powierzchnia o regulowanej temperaturze [Ar, m2]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="powierzchniaZajmowanaPrzezOrgan" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Powierzchnia zajmowana przez organ
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przeznaczenieBudynku" type="przeznaczenieBudynku" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Przeznaczenie budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przeznaczenieBudynkuInny" type="string40" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Inne przeznaczenie budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="rodzajBudynku" type="rodzajBudynku" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rodzaj budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="rokOddania" type="xs:int" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rok oddania do użytkowania
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="uwagiDoSwiadectwa">
+        <xs:sequence>
+            <xs:element name="inneUwagi" type="string4000" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Inne uwagi dotyczące poprawy charakterystyki energetycznej budynku (w tym wskazanie, gdzie można
+                        uzyskać szczegółowe informacje dotyczące opłacalności ekonomicznej zawartych w świadectwie oraz
+                        informację dotyczącą działań, jakie należy podjąć w celu wypełnienia zaleceń)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="zaleceniaDoPrzegrodBudynku" type="string4000" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Zalecenia dotyczące opłacalnej ekonomicznie poprawy charakterystyki energetycznej lokalu
+                        mieszkalnego w zakresie przegród budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="zaleceniaDoPrzegrodBudynkuNiezaleznie" type="string4000" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Zalecenia dotyczące opłacalnej ekonomicznie poprawy charakterystyki energetycznej części budynku
+                        w zakresie przegród budynku niezależnie od planowanych robót budowlanych, o których mowa w pkt 1
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="zaleceniaDoSystemowTechnicznych" type="string4000" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Zalecenia dotyczące opłacalnej ekonomicznie poprawy charakterystyki energetycznej budynku w
+                        zakresie systemów technicznych w budynku w przypadku planowania robót budowlanych polegających
+                        na ociepleniu budynku, obejmujących ponad 25% powierzchni przegród zewnętrznych tego budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="zaleceniaDoSystemowTechnicznychNiezaleznie" type="string4000" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Zalecenia dotyczące opłacalnej ekonomicznie poprawy charakterystyki energetycznej części budynku
+                        w zakresie systemów technicznych w budynku lub części budynku niezależnie od planowanych robót
+                        budowlanych, o których mowa w pkt 2
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="energiaPierwotna">
+        <xs:complexContent>
+            <xs:extension base="energiaValues">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="energiaKoncowa">
+        <xs:complexContent>
+            <xs:extension base="energiaValues">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="energiaUzytkowa">
+        <xs:complexContent>
+            <xs:extension base="energiaValues">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="energiaValues">
+        <xs:sequence>
+            <xs:element name="rodzajNosnika" type="paliwaZrodlaEnergii" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rodzaj nośnika energii lub energii
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="inne" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Inne
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="oswietlenieWbudowane" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Oświetlenie wbudowane
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="chlodzenie" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Chłodzenie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="cieplaWoda" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ciepła woda użytkowa
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ogrzewanieWentylacja" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ogrzewanie i wentylacja
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="przegrodaBudynku">
+        <xs:sequence>
+            <xs:element name="wspolczynnikPrzenikaniaCieplaWymagany" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Współczynnik przenikania ciepła wymagany U [W/(m2·K)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wspolczynnikPrzenikaniaCieplaUzyskany" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Współczynnik przenikania ciepła uzyskany U [W/(m2·K)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="opisPrzegrody" type="string4000" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis przegrody
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="nazwaPrzegrodyBudynku" type="nazwaPrzegrodyBudynku" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nazwa przegrody budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="nazwaPrzegrodyInna" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nazwa przegrody inna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="czyBezWymagan" type="xs:boolean" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Umożliwienie uzupełnienia współczynnika przenikania ciepła przegrody słowami bez wymagań
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="roczneZuzycieNosnikaEnergiiSystemuOswietlenia">
+        <xs:complexContent>
+            <xs:extension base="roczneZuzycieNosnikaEnergii">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="roczneZuzycieNosnikaEnergiiSystemuChlodzenia">
+        <xs:complexContent>
+            <xs:extension base="roczneZuzycieNosnikaEnergii">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="parametrTechinczySystemOgrzewczy">
+        <xs:sequence>
+            <xs:element name="wytwarzanieCieplaOpisowo" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wytwarzanie ciepła opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wytwarzanieCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylCieplaOpisowo" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Przesył ciepła opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="akumulacjaCieplaOpisowo" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Akumulacja ciepła opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="akumulacjaCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="regulacjaOpisowo" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Regulacja i wykorzystanie ciepła opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="regulacjaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="parametrTechinczySystemCieplejWody">
+        <xs:sequence>
+            <xs:element name="wytwarzanieCieplaOpisowo" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wytwarzanie ciepła opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wytwarzanieCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylCieplaOpisowo" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Przesył ciepła opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="akumulacjaCieplaOpisowo" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Akumulacja ciepła opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="akumulacjaCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="parametrTechinczySystemChlodzenia">
+        <xs:sequence>
+            <xs:element name="wytwarzanieChloduOpisowo" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wytwarzanie chłodu opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wytwarzanieChloduSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylChloduOpisowo" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Przesył chłodu opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylChloduSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="akumulacjaChloduOpisowo" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Akumulacja chłodu opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="akumulacjaChloduSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="regulacjaOpisowo" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Regulacja i wykorzystanie chłodu opis
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="regulacjaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="roczneZuzycieNosnikaEnergiiSystemuCieplejWody">
+        <xs:complexContent>
+            <xs:extension base="roczneZuzycieNosnikaEnergii">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="roczneZuzycieNosnikaEnergiiSystemuOgrzewania">
+        <xs:complexContent>
+            <xs:extension base="roczneZuzycieNosnikaEnergii">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="roczneZuzycieNosnikaEnergii">
+        <xs:sequence>
+            <!--<xs:element name="typ" type="xs:string" minOccurs="0"/>  TODO FIXME-->
+            <xs:element name="jednostka" type="jednostki" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Jednostka/(m2·rok)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="iloscNosnika" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ilość nośnika energii lub energii
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="rodzajNosnika" type="paliwaZrodlaEnergii" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rodzaj nośnika energii lub energii
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="inne" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Inne
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="podzialPowierzchniUzytkowej">
+        <xs:sequence>
+            <xs:element name="powierzchnia" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Powierzchnia [m2]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="rodzajPowierzchniUzytkowejInna" type="string40" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rodzaj powierzchni uzytkowej inna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="rodzajPowierzchniUzytkowej" type="rodzajPowierzchniUzytkowej" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rodzaj powierzchni użytkowej
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="parametryTechniczne">
+        <xs:sequence>
+            <xs:element name="inneIstotneDane" type="string4000" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Inne istotne dane dotyczące budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="kubatura" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kubatura budynku [m3]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="kubaturaORegulowanejTemp" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kubatura budynku o regulowanej temperaturze powietrza [m3]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="liczbaKondygnacji" type="xs:int" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Liczba kondygnacji budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="opisInstalacjiOswietlenia" type="string4000" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        System wbudowanej instalacji oświetlenia
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="opisInstalacjiWentylacji" type="string4000" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wentylacja
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="rodzajKonstrukcji" type="string350" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rodzaj konstrukcji budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="systemChlodzenia" type="systemChlodzeniaOld" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        System chłodzenia
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="systemCieplejWody" type="systemCieplejWodyOld" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        System  przygotowania ciepłej wody użytkowej
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="systemOgrzewczy" type="systemOgrzewczyOld" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        System ogrzewczy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="temperaturaStrefyOgrzewane" type="string350" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Temperatury wewnętrzne w budynku w zależności od stref ogrzewanych
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="systemChlodzeniaOld">
+        <xs:sequence>
+            <xs:element name="akumulacjaChloduOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis akumulacji chłodu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="akumulacjaChloduSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność akumulacji chłodu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylChloduOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis przesyłu chłodu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylChloduSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność przesyłu chłodu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="regulacjaWykorzystanieChloduOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis regulacji wykorzystania chłodu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="regulacjaWykorzystanieChloduSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność regulacji wykorzystania chłodu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wytwarzanieChloduOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis wytwarzania chłodu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wytwarzanieChloduSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność wytwarzania chłodu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="systemCieplejWodyOld">
+        <xs:sequence>
+            <xs:element name="akumulacjaCieplejWodyOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis akumulacji ciepłej wody
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="akumulacjaCieplejWodySprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność akumulacji ciepłej wody
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylCieplejWodyOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis przesyłu ciepłej wody
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylCieplejWodySprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność przesyłu ciepłej wody
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wytwarzanieCieplejWodyOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis wytwarzania ciepłej wody
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wytwarzanieCieplejWodySprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność wytwarzania ciepłej wody
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="systemOgrzewczyOld">
+        <xs:sequence>
+            <xs:element name="akumulacjaCieplaOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis akumulacji ciepła
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="akumulacjaCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność akumulacji ciepła
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylCieplaOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis przesyłu ciepła
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="przesylCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność przesyłu ciepła
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="regulacjaWykorzystanieCieplaOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis regulacji wykorzystania ciepła
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="regulacjaWykorzystanieCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność regulacji wykorzystania ciepła
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wytwarzanieCieplaOpis" type="string400" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opis wytwarzania ciepła
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="wytwarzanieCieplaSprawnosc" type="string255" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Średnia sezonowa sprawność wytwarzania ciepła
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="charakterystykaEnergetyczna">
+        <xs:sequence>
+            <xs:element name="budynekNowyPoziomWymaganEp" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Poziom wymagań dla budynku nowego/przebudowanego EP [kWh/(m2·rok)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="budynekOcenianyZapotrzebowanieEk" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wskaźnik rocznego zapotrzebowania na energię końcow a EK [kWh/(m2·rok)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="budynekOcenianyZapotrzebowanieEp" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wskaźnik rocznego zapotrzebowania na nieodnawialną energię pierwotną EP [kWh/(m2·rok)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="budynekOcenianyZapotrzebowanieEu" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wskaźnik rocznego zapotrzebowania na energię użytkową EU [kWh/(m2·rok)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="poziomEmisjiCO2" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Jednostkowa wielkość emisji CO2 ECO2 [t CO2/(m2rok)]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="udzialOdnawialnychZrodelEnergiiEk" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Udział odnawialnych źródeł energii w rocznym zapotrzebowaniu na energię końcową UOZE[%]
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="gmina">
+        <xs:sequence>
+            <xs:element name="kodGminy" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kod TERYT gminy, np.3263010, gdzie:
+                        36-kod województwa
+                        63-kod powiatu
+                        01-kod gminy
+                        0-kod rodzaju jednostki
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="powiat">
+        <xs:sequence>
+            <xs:element name="kodPowiatu" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kod TERYT powiatu, np. 3263
+                        32-kod województwa
+                        63-kod powiatu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="wojewodztwo">
+        <xs:annotation>
+            <xs:documentation>
+                Wartości to kody TERYT województw:
+                K_02: dolnośląskie
+                K_04: kujawsko-pomorskie
+                K_06: lubelskie
+                K_08: lubuskie
+                K_10: łódzkie
+                K_12: małopolskie
+                K_14: mazowieckie
+                K_16: opolskie
+                K_18: podkarpackie
+                K_20: podlaskie
+                K_22: pomorskie
+                K_24: śląskie
+                K_26: świętokrzyskie
+                K_28: warmińsko-mazurskie
+                K_30: wielkopolskie
+                K_32: zachodniopomorskie
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="K_02">
+                <xs:annotation>
+                    <xs:documentation>
+                        dolnośląskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_04">
+                <xs:annotation>
+                    <xs:documentation>
+                        kujawsko-pomorskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_06">
+                <xs:annotation>
+                    <xs:documentation>
+                        lubelskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_08">
+                <xs:annotation>
+                    <xs:documentation>
+                        lubuskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_10">
+                <xs:annotation>
+                    <xs:documentation>
+                        łódzkie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_12">
+                <xs:annotation>
+                    <xs:documentation>
+                        małopolskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_14">
+                <xs:annotation>
+                    <xs:documentation>
+                        mazowieckie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_16">
+                <xs:annotation>
+                    <xs:documentation>
+                        opolskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_18">
+                <xs:annotation>
+                    <xs:documentation>
+                        podkarpackie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_20">
+                <xs:annotation>
+                    <xs:documentation>
+                        podlaskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_22">
+                <xs:annotation>
+                    <xs:documentation>
+                        pomorskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_24">
+                <xs:annotation>
+                    <xs:documentation>
+                        śląskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_26">
+                <xs:annotation>
+                    <xs:documentation>
+                        świętokrzyskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_28">
+                <xs:annotation>
+                    <xs:documentation>
+                        warmińsko-mazurskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_30">
+                <xs:annotation>
+                    <xs:documentation>
+                        wielkopolskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_32">
+                <xs:annotation>
+                    <xs:documentation>
+                        zachodniopomorskie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="rodzajPowierzchniUzytkowej">
+        <xs:annotation>
+            <xs:documentation>
+                Słownik metod obliczenia charakterystyki energetycznej. Kody odpowiadają nastepującym wartościom:
+                K_1: powierzchnia mieszkalna
+                K_2: powierzchnia niemieszkalna
+                K_3: powierzchnia usługowa
+                K_4: inna
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="K_1">
+                <xs:annotation>
+                    <xs:documentation>
+                        powierzchnia mieszkalna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_2">
+                <xs:annotation>
+                    <xs:documentation>
+                        powierzchnia niemieszkalna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_3">
+                <xs:annotation>
+                    <xs:documentation>
+                        powierzchnia usługowa
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_4">
+                <xs:annotation>
+                    <xs:documentation>
+                        inna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="stacjaKlimatyczna">
+        <xs:annotation>
+            <xs:documentation>
+                Słownik stacji klimatycznych. Kody odpowiadają nastepującym wartościom:
+                K_1: Białystok
+                K_2: Bielsko Biała
+                K_3: Bydgoszcz
+                K_4: Chojnice
+                K_5: Częstochowa
+                K_6: Elbląg
+                K_7: Gdańsk Port Północny
+                K_8: Gorzów Wlkp.
+                K_9: Hel
+                K_10: Jelenia Góra
+                K_11: Kalisz
+                K_12: Kasprowy Wierch
+                K_13: Katowice
+                K_14: Kętrzyn
+                K_15: Kielce Suków
+                K_16: Kłodzko
+                K_17: Koło
+                K_18: Kołobrzeg
+                K_19: Koszalin
+                K_20: Kraków Balice
+                K_21: Krosno
+                K_22: Legnica
+                K_23: Lesko
+                K_24: Leszno Strzyrzowice
+                K_25: Lębork
+                K_26: Lublin Radawiec
+                K_27: Łeba
+                K_28: Łódź Lublinek
+                K_29: Mikołajki
+                K_30: Mława
+                K_31: Nowy Sącz
+                K_32: Olsztyn
+                K_33: Opole
+                K_34: Ostrołęka
+                K_35: Piła
+                K_36: Płock Trzepowo
+                K_37: Poznań
+                K_38: Przemyśl
+                K_39: Racibórz Studzienna
+                K_40: Resko
+                K_41: Rzeszów Jasionka
+                K_42: Sandomierz
+                K_43: Siedlce
+                K_44: Słubice
+                K_45: Sulejów
+                K_46: Suwałki
+                K_47: Szczecin Dąbie
+                K_48: Szczecinek
+                K_49: Śnieżka
+                K_50: Świnoujście
+                K_51: Tarnów
+                K_52: Terespol
+                K_53: Toruń
+                K_54: Ustka
+                K_55: Warszawa Okęcie
+                K_56: Wieluń
+                K_57: Włodawa
+                K_58: Wrocław
+                K_59: Zakopane
+                K_60: Zamość
+                K_61: Zielona Góra
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="K_1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Białystok
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_2">
+                <xs:annotation>
+                    <xs:documentation>
+                        Bielsko Biała
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_3">
+                <xs:annotation>
+                    <xs:documentation>
+                        Bydgoszcz
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_4">
+                <xs:annotation>
+                    <xs:documentation>
+                        Chojnice
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_5">
+                <xs:annotation>
+                    <xs:documentation>
+                        Częstochowa
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_6">
+                <xs:annotation>
+                    <xs:documentation>
+                        Elbląg
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_7">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gdańsk Port Północny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_8">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gorzów Wlkp.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_9">
+                <xs:annotation>
+                    <xs:documentation>
+                        Hel
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_10">
+                <xs:annotation>
+                    <xs:documentation>
+                        Jelenia Góra
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_11">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kalisz
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_12">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kasprowy Wierch
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_13">
+                <xs:annotation>
+                    <xs:documentation>
+                        Katowice
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_14">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kętrzyn
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_15">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kielce Suków
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_16">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kłodzko
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_17">
+                <xs:annotation>
+                    <xs:documentation>
+                        Koło
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_18">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kołobrzeg
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_19">
+                <xs:annotation>
+                    <xs:documentation>
+                        Koszalin
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_20">
+                <xs:annotation>
+                    <xs:documentation>
+                        Kraków Balice
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_21">
+                <xs:annotation>
+                    <xs:documentation>
+                        Krosno
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_22">
+                <xs:annotation>
+                    <xs:documentation>
+                        Legnica
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_23">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lesko
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_24">
+                <xs:annotation>
+                    <xs:documentation>
+                        Leszno Strzyrzowice
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_25">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lębork
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_26">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lublin Radawiec
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_27">
+                <xs:annotation>
+                    <xs:documentation>
+                        Łeba
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_28">
+                <xs:annotation>
+                    <xs:documentation>
+                        Łódź Lublinek
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_29">
+                <xs:annotation>
+                    <xs:documentation>
+                        Mikołajki
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_30">
+                <xs:annotation>
+                    <xs:documentation>
+                        Mława
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_31">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nowy Sącz
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_32">
+                <xs:annotation>
+                    <xs:documentation>
+                        Olsztyn
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_33">
+                <xs:annotation>
+                    <xs:documentation>
+                        Opole
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_34">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ostrołęka
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_35">
+                <xs:annotation>
+                    <xs:documentation>
+                        Piła
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_36">
+                <xs:annotation>
+                    <xs:documentation>
+                        Płock Trzepowo
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_37">
+                <xs:annotation>
+                    <xs:documentation>
+                        Poznań
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_38">
+                <xs:annotation>
+                    <xs:documentation>
+                        Przemyśl
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_39">
+                <xs:annotation>
+                    <xs:documentation>
+                        Racibórz Studzienna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_40">
+                <xs:annotation>
+                    <xs:documentation>
+                        Resko
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_41">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rzeszów Jasionka
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_42">
+                <xs:annotation>
+                    <xs:documentation>
+                        Sandomierz
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_43">
+                <xs:annotation>
+                    <xs:documentation>
+                        Siedlce
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_44">
+                <xs:annotation>
+                    <xs:documentation>
+                        Słubice
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_45">
+                <xs:annotation>
+                    <xs:documentation>
+                        Sulejów
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_46">
+                <xs:annotation>
+                    <xs:documentation>
+                        Suwałki
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_47">
+                <xs:annotation>
+                    <xs:documentation>
+                        Szczecin Dąbie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_48">
+                <xs:annotation>
+                    <xs:documentation>
+                        Szczecinek
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_49">
+                <xs:annotation>
+                    <xs:documentation>
+                        Śnieżka
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_50">
+                <xs:annotation>
+                    <xs:documentation>
+                        Świnoujście
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_51">
+                <xs:annotation>
+                    <xs:documentation>
+                        Tarnów
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_52">
+                <xs:annotation>
+                    <xs:documentation>
+                        Terespol
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_53">
+                <xs:annotation>
+                    <xs:documentation>
+                        Toruń
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_54">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ustka
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_55">
+                <xs:annotation>
+                    <xs:documentation>
+                        Warszawa Okęcie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_56">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wieluń
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_57">
+                <xs:annotation>
+                    <xs:documentation>
+                        Włodawa
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_58">
+                <xs:annotation>
+                    <xs:documentation>
+                        Wrocław
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_59">
+                <xs:annotation>
+                    <xs:documentation>
+                        Zakopane
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_60">
+                <xs:annotation>
+                    <xs:documentation>
+                        Zamość
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_61">
+                <xs:annotation>
+                    <xs:documentation>
+                        Zielona Góra
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="paliwaZrodlaEnergii">
+        <xs:annotation>
+            <xs:documentation>
+                Słownik paliw oraz źródeł energii. Kody odpowiadają nastepującym wartościom:
+                K_1: Olej opałowy
+                K_2: Gaz ziemny
+                K_3: Gaz płynny
+                K_4: Węgiel kamienny
+                K_5: Węgiel brunatny
+                K_6: Energia słoneczna
+                K_7: Energia wiatrowa
+                K_8: Energia geotermalna
+                K_9: Biomasa
+                K_10: Biogaz
+                K_11: Ciepło sieciowe z kogeneracji - węgiel kamienny lub gaz
+                K_12: Ciepło sieciowe z kogeneracji - biomasa, biogaz
+                K_13: Ciepło sieciowe z ciepłowni – węgiel kamienny
+                K_14: Ciepło sieciowe z ciepłowni – gaz ziemny lub olej opałowy
+                K_15: Energia elektryczna
+                K_16: Inny
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="K_1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Olej opałowy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_2">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gaz ziemny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_3">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gaz płynny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_4">
+                <xs:annotation>
+                    <xs:documentation>
+                        Węgiel kamienny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_5">
+                <xs:annotation>
+                    <xs:documentation>
+                        Węgiel brunatny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_6">
+                <xs:annotation>
+                    <xs:documentation>
+                        Energia słoneczna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_7">
+                <xs:annotation>
+                    <xs:documentation>
+                        Energia wiatrowa
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_8">
+                <xs:annotation>
+                    <xs:documentation>
+                        Energia geotermalna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_9">
+                <xs:annotation>
+                    <xs:documentation>
+                        Biomasa
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_10">
+                <xs:annotation>
+                    <xs:documentation>
+                        Biogaz
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_11">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ciepło sieciowe z kogeneracji - węgiel kamienny lub gaz
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_12">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ciepło sieciowe z kogeneracji - biomasa, biogaz
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_13">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ciepło sieciowe z ciepłowni – węgiel kamienny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_14">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ciepło sieciowe z ciepłowni – gaz ziemny lub olej opałowy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_15">
+                <xs:annotation>
+                    <xs:documentation>
+                        Energia elektryczna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_16">
+                <xs:annotation>
+                    <xs:documentation>
+                        Inny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="metodaObliczaniaCharakterystykiEnergetycznej">
+        <xs:annotation>
+            <xs:documentation>
+                Słownik metod obliczenia charakterystyki energetycznej. Kody odpowiadają nastepującym wartościom:
+                K_1: metoda obliczeniowa
+                K_2: metoda zużyciowa
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="K_1">
+                <xs:annotation>
+                    <xs:documentation>
+                        metoda obliczeniowa
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_2">
+                <xs:annotation>
+                    <xs:documentation>
+                        metoda zużyciowa
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="jednostki">
+        <xs:annotation>
+            <xs:documentation>
+                Słownik jednostek miary. Kody odpowiadają nastepującym wartościom:
+                K_1: kg
+                K_2: m^2
+                K_3: kWh
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="K_1">
+                <xs:annotation>
+                    <xs:documentation>
+                        kg
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_2">
+                <xs:annotation>
+                    <xs:documentation>
+                        m^2
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_3">
+                <xs:annotation>
+                    <xs:documentation>
+                        kWh
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="nazwaPrzegrodyBudynku">
+        <xs:annotation>
+            <xs:documentation>
+                Słownik nazw przegród budynku. Kody odpowiadają nastepującym wartościom:
+                K_1: okno zewnętrze i drzwi balkonowe
+                K_2: drzwi zewnętrzne
+                K_3: ściana zewnętrzna
+                K_4: ściana wewnętrzna
+                K_5: ściana przyległa do szczelin dylatacyjnych
+                K_6: dach
+                K_7: stropodach
+                K_8: strop pod nieogrzewanym poddaszem
+                K_9: podłoga na gruncie
+                K_10: strop nad przejazdem
+                K_11: strop nad pomieszczeniami nieogrzewanymi
+                K_12: strop nad zamkniętymi przestrzeniami podpodłogowymi
+                K_13: strop nad ogrzewanymi pomieszczeniami podziemnymi
+                K_14: strop międzykondygnacyjny
+                K_15: inna
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="K_1">
+                <xs:annotation>
+                    <xs:documentation>
+                        okno zewnętrze i drzwi balkonowe
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_2">
+                <xs:annotation>
+                    <xs:documentation>
+                        drzwi zewnętrzne
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_3">
+                <xs:annotation>
+                    <xs:documentation>
+                        ściana zewnętrzna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_4">
+                <xs:annotation>
+                    <xs:documentation>
+                        ściana wewnętrzna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_5">
+                <xs:annotation>
+                    <xs:documentation>
+                        ściana przyległa do szczelin dylatacyjnych
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_6">
+                <xs:annotation>
+                    <xs:documentation>
+                        dach
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_7">
+                <xs:annotation>
+                    <xs:documentation>
+                        stropodach
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_8">
+                <xs:annotation>
+                    <xs:documentation>
+                        strop pod nieogrzewanym poddaszem
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_9">
+                <xs:annotation>
+                    <xs:documentation>
+                        podłoga na gruncie
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_10">
+                <xs:annotation>
+                    <xs:documentation>
+                        strop nad przejazdem
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_11">
+                <xs:annotation>
+                    <xs:documentation>
+                        strop nad pomieszczeniami nieogrzewanymi
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_12">
+                <xs:annotation>
+                    <xs:documentation>
+                        strop nad zamkniętymi przestrzeniami podpodłogowymi
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_13">
+                <xs:annotation>
+                    <xs:documentation>
+                        strop nad ogrzewanymi pomieszczeniami podziemnymi
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_14">
+                <xs:annotation>
+                    <xs:documentation>
+                        strop międzykondygnacyjny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_15">
+                <xs:annotation>
+                    <xs:documentation>
+                        inna
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="przeznaczenieBudynku">
+        <xs:annotation>
+            <xs:documentation>
+                Słownik przeznaczenia budynku. Kody odpowiadają nastepującym wartościom:
+                K_1: jednorodzinny
+                K_2: wielorodzinny
+                K_3: biurowy
+                K_4: przeznaczony na potrzeby: oświaty, szkolnictwa wyższego, nauki
+                K_5: przeznaczony na potrzeby opieki zdrowotnej
+                K_6: przeznaczony na potrzeby gastronomii
+                K_7: przeznaczony na potrzeby sportu
+                K_8: przeznaczony na potrzeby: handlu, usług
+                K_9: przeznaczony na potrzeby administracji publicznej
+                K_10: przeznaczony na potrzeby wymiaru sprawiedliwości
+                K_11: przeznaczony na potrzeby kultury
+                K_12: przeznaczony na potrzeby kultu religijnego
+                K_13: przeznaczony na potrzeby obsługi bankowej
+                K_14: przeznaczony na potrzeby turystyki
+                K_15: przeznaczony na potrzeby prokuratury
+                K_16: przeznaczony na potrzeby obsługi pasażerów w transporcie kolejowym, drogowym, lotniczym, morskim
+                lub wodnym śródlądowym
+                K_17: inny (dla budynków użyteczności publicznej)
+                K_18: hotel
+                K_19: motel
+                K_20: pensjonat, dom wypoczynkowy lub dom wycieczkowy
+                K_21: schronisko młodzieżowe lub schronisko
+                K_22: internat
+                K_23: dom studencki
+                K_24: budynek koszarowy
+                K_25: budynek zakwaterowania na terenie zakładu karnego, aresztu śledczego, zakładu poprawczego lub
+                schroniska dla nieletnich
+                K_26: dom dziecka
+                K_27: dom rencistów
+                K_28: dom zakonny
+                K_29: inny (dla budynków zamieszkania zbiorowego)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="K_1">
+                <xs:annotation>
+                    <xs:documentation>
+                        jednorodzinny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_2">
+                <xs:annotation>
+                    <xs:documentation>
+                        wielorodzinny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_3">
+                <xs:annotation>
+                    <xs:documentation>
+                        biurowy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_4">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby: oświaty, szkolnictwa wyższego, nauki
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_5">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby opieki zdrowotnej
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_6">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby gastronomii
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_7">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby sportu
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_8">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby: handlu, usług
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_9">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby administracji publicznej
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_10">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby wymiaru sprawiedliwości
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_11">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby kultury
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_12">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby kultu religijnego
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_13">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby obsługi bankowej
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_14">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby turystyki
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_15">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby prokuratury
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_16">
+                <xs:annotation>
+                    <xs:documentation>
+                        przeznaczony na potrzeby obsługi pasażerów w transporcie kolejowym, drogowym, lotniczym, morskim
+                        lub wodnym śródlądowym
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_17">
+                <xs:annotation>
+                    <xs:documentation>
+                        inny (dla budynków użyteczności publicznej)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_18">
+                <xs:annotation>
+                    <xs:documentation>
+                        hotel
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_19">
+                <xs:annotation>
+                    <xs:documentation>
+                        motel
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_20">
+                <xs:annotation>
+                    <xs:documentation>
+                        pensjonat, dom wypoczynkowy lub dom wycieczkowy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_21">
+                <xs:annotation>
+                    <xs:documentation>
+                        schronisko młodzieżowe lub schronisko
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_22">
+                <xs:annotation>
+                    <xs:documentation>
+                        internat
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_23">
+                <xs:annotation>
+                    <xs:documentation>
+                        dom studencki
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_24">
+                <xs:annotation>
+                    <xs:documentation>
+                        budynek koszarowy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_25">
+                <xs:annotation>
+                    <xs:documentation>
+                        budynek zakwaterowania na terenie zakładu karnego, aresztu śledczego, zakładu poprawczego lub
+                        schroniska dla nieletnich
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_26">
+                <xs:annotation>
+                    <xs:documentation>
+                        dom dziecka
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_27">
+                <xs:annotation>
+                    <xs:documentation>
+                        dom rencistów
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_28">
+                <xs:annotation>
+                    <xs:documentation>
+                        dom zakonny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_29">
+                <xs:annotation>
+                    <xs:documentation>
+                        inny (dla budynków zamieszkania zbiorowego)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="rodzajBudynku">
+        <xs:annotation>
+            <xs:documentation>
+                Słownik rodzajów budynku. Kody odpowiadają nastepującym wartościom:
+                K_1: budynek gospodarczy
+                K_2: budynek magazynowy
+                K_3: budynek mieszkalny
+                K_4: budynek rekreacji indywidualnej
+                K_5: budynek produkcyjny
+                K_6: budynek użyteczności publicznej
+                K_7: budynek zamieszkania zbiorowego
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="K_1">
+                <xs:annotation>
+                    <xs:documentation>
+                        budynek gospodarczy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_2">
+                <xs:annotation>
+                    <xs:documentation>
+                        budynek magazynowy
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_3">
+                <xs:annotation>
+                    <xs:documentation>
+                        budynek mieszkalny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_4">
+                <xs:annotation>
+                    <xs:documentation>
+                        budynek rekreacji indywidualnej
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_5">
+                <xs:annotation>
+                    <xs:documentation>
+                        budynek produkcyjny
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_6">
+                <xs:annotation>
+                    <xs:documentation>
+                        budynek użyteczności publicznej
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="K_7">
+                <xs:annotation>
+                    <xs:documentation>
+                        budynek zamieszkania zbiorowego
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="yesNoType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NO"/>
+            <xs:enumeration value="YES"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="swiadectwoEnergetyczneType">
+        <xs:annotation>
+            <xs:documentation>
+                Enumeracja określająca rodzaj świadectwa (dla budynku, cześci budynku).
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BUILDING">
+                <xs:annotation>
+                    <xs:documentation>
+                        Swiadectwo energetyczne budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PART_BUILDING">
+                <xs:annotation>
+                    <xs:documentation>
+                        Swiadectwo energetyczne części budynku
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="string10">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string40">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string70">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="70"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string170">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="170"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string200">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="200"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string255">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string300">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="300"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string350">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="350"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string400">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="400"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string4000">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="swiadectwoEnergetyczneImage">
+        <xs:sequence>
+            <xs:element name="imageResource" minOccurs="1" type="xs:base64Binary"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+
